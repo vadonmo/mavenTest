@@ -1,5 +1,7 @@
 package com.vadon.model;
 
+import java.util.List;
+
 public class User {
     private Integer id;
 
@@ -8,6 +10,8 @@ public class User {
     private String password;
 
     private Integer age;
+    
+    private List<Blog> blogs;
 
     public Integer getId() {
         return id;
@@ -41,9 +45,18 @@ public class User {
         this.age = age;
     }
 
+	public List<Blog> getBlogs() {
+		return blogs;
+	}
+
+	public void setBlogs(List<Blog> blogs) {
+		this.blogs = blogs;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", age=" + age + "]";
+		return "User [id=" + id + ", userName=" + userName + ", password=" + password + ", age=" + age + ", blogs="
+				+ blogs + "]";
 	}
     
 }

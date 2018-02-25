@@ -21,9 +21,8 @@ public class IUserServiceTest {
     
     @Test
     public void getUserByIdTest(){
-     
-        User user = userService.getUserById(1);
-        System.out.println(user.getUserName());
+        User user = userService.getUserAllBlog(1);
+        System.out.println(user);
     }
     
 }

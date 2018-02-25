@@ -17,4 +17,8 @@ public class IUserServiceImpl implements IUserService {
 		return uDao.selectByPrimaryKey(id);
 	}
 
+	public User getUserAllBlog(int id) {
+		return uDao.selectUserAllBlog(id);
+	}
+
 }
