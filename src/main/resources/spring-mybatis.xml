@@ -67,6 +67,4 @@
 	<!-- 配置基于注解的声明式事务 -->
 	<!-- enables scanning for @Transactional annotations -->
 	<tx:annotation-driven transaction-manager="transactionManager" />
-
-
 </beans>

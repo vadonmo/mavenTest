@@ -6,21 +6,27 @@
 		<result column="user_name" jdbcType="VARCHAR" property="userName" />
 		<result column="password" jdbcType="VARCHAR" property="password" />
 		<result column="age" jdbcType="INTEGER" property="age" />
+	</resultMap>
+	<resultMap id="BlogResultMap" type="com.vadon.model.User">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="user_name" jdbcType="VARCHAR" property="userName" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="age" jdbcType="INTEGER" property="age" />
 		<collection property="blogs" column="id" ofType="com.vadon.model.Blog">
-			<id column="b_id" property="id" jdbcType="INTEGER"/>
+			<id column="b_id" property="id" jdbcType="INTEGER" />
 			<result column="title" property="title" />
-			<result column="uid" property="uid" jdbcType="INTEGER"/>
+			<result column="uid" property="uid" jdbcType="INTEGER" />
 		</collection>
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, user_name, password, age
 	</sql>
 	<select id="selectUserAllBlog" parameterType="java.lang.Integer"
-		resultMap="BaseResultMap">
-		select u.id, u.user_name, u.`password`, u.age,b.id b_id, b.title, b.uid 
-		from user_t u 
-		LEFT JOIN blog_t b 
-		ON u.id = b.uid 
+		resultMap="BlogResultMap">
+		select u.id, u.user_name, u.`password`, u.age,b.id b_id, b.title, b.uid
+		from user_t u
+		LEFT JOIN blog_t b
+		ON u.id = b.uid
 		WHERE u.id = #{id,jdbcType=INTEGER}
 	</select>
 	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
